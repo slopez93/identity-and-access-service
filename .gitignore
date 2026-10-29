@@ -1,0 +1,14 @@
+.DS_Store
+.env
+.env.*
+!.env.example
+.envrc
+.aws/
+bin/
+coverage.out
+*.prof
+*.log
+*.pem
+*.key
+*.p12
+*.pfx

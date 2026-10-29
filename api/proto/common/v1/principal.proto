@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package common.v1;
+
+option go_package = "github.com/example/identity-access-service/gen/proto/common/v1;commonv1";
+
+enum PrincipalType {
+  UNSPECIFIED = 0;
+  USER = 1;
+  SERVICE = 2;
+}
+
+message Principal {
+  string id = 1;
+  PrincipalType type = 2;
+  repeated string scopes = 3;
+}

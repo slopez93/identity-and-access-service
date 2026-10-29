@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package authentication.v1;
+
+import "common/v1/principal.proto";
+
+option go_package = "github.com/example/identity-access-service/gen/proto/authentication/v1;authenticationv1";
+
+service AuthenticationService {
+  rpc ValidateToken(ValidateTokenRequest) returns (ValidateTokenResponse);
+  rpc GetServiceToken(GetServiceTokenRequest) returns (GetServiceTokenResponse);
+}
+
+message ValidateTokenRequest {
+  string token = 1;
+}
+
+message ValidateTokenResponse {
+  common.v1.Principal principal = 1;
+}
+
+message GetServiceTokenRequest {
+  string service_id = 1;
+  repeated string scopes = 2;
+}
+
+message GetServiceTokenResponse {
+  string access_token = 1;
+  string token_type = 2;
+  int32 expires_in = 3;
+}
